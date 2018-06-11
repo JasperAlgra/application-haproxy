@@ -1,0 +1,1133 @@
+{
+   "attribute" : [
+      {
+         "arg1" : "",
+         "arg3" : "80",
+         "arg4" : "haproxy?stats",
+         "label1" : "Username",
+         "label2" : "Password",
+         "label3" : "Port",
+         "label4" : "Stats Path",
+         "name" : "HAPROXY",
+         "secured1" : "0",
+         "secured2" : "1",
+         "secured3" : "0",
+         "secured4" : "0",
+         "value" : ""
+      },
+      {
+         "arg1" : "",
+         "arg2" : "",
+         "arg3" : "",
+         "arg4" : "",
+         "label1" : "",
+         "label2" : "",
+         "label3" : "",
+         "label4" : "",
+         "name" : "HAPROXY_PROXY",
+         "secured1" : "0",
+         "secured2" : "0",
+         "secured3" : "0",
+         "secured4" : "0",
+         "value" : ""
+      }
+   ],
+   "hosttemplate" : [
+      {
+         "description" : "Monitor data from the haproxy stats page",
+         "has_icon" : "0",
+         "managementurls" : [],
+         "name" : "Application - Haproxy",
+         "servicechecks" : [
+            {
+               "event_handler" : null,
+               "exception" : null,
+               "name" : "Haproxy - Bytes",
+               "timed_exception" : null
+            },
+            {
+               "event_handler" : null,
+               "exception" : null,
+               "name" : "Haproxy - Connect Time",
+               "timed_exception" : null
+            },
+            {
+               "event_handler" : null,
+               "exception" : null,
+               "name" : "Haproxy - Currrent Queue",
+               "timed_exception" : null
+            },
+            {
+               "event_handler" : null,
+               "exception" : null,
+               "name" : "Haproxy - Denied Connection",
+               "timed_exception" : null
+            },
+            {
+               "event_handler" : null,
+               "exception" : null,
+               "name" : "Haproxy - Denied Requests",
+               "timed_exception" : null
+            },
+            {
+               "event_handler" : null,
+               "exception" : null,
+               "name" : "Haproxy - Denied Response",
+               "timed_exception" : null
+            },
+            {
+               "event_handler" : null,
+               "exception" : null,
+               "name" : "Haproxy - Denied Sessions",
+               "timed_exception" : null
+            },
+            {
+               "event_handler" : null,
+               "exception" : null,
+               "name" : "Haproxy - Error Connections",
+               "timed_exception" : null
+            },
+            {
+               "event_handler" : null,
+               "exception" : null,
+               "name" : "Haproxy - Error Requests",
+               "timed_exception" : null
+            },
+            {
+               "event_handler" : null,
+               "exception" : null,
+               "name" : "Haproxy - Error Response",
+               "timed_exception" : null
+            },
+            {
+               "event_handler" : null,
+               "exception" : null,
+               "name" : "Haproxy - Intercepted Requests",
+               "timed_exception" : null
+            },
+            {
+               "event_handler" : null,
+               "exception" : null,
+               "name" : "Haproxy - Queue Time",
+               "timed_exception" : null
+            },
+            {
+               "event_handler" : null,
+               "exception" : null,
+               "name" : "Haproxy - Request Rate",
+               "timed_exception" : null
+            },
+            {
+               "event_handler" : null,
+               "exception" : null,
+               "name" : "Haproxy - Request Time",
+               "timed_exception" : null
+            },
+            {
+               "event_handler" : null,
+               "exception" : null,
+               "name" : "Haproxy - Response Codes",
+               "timed_exception" : null
+            },
+            {
+               "event_handler" : null,
+               "exception" : null,
+               "name" : "Haproxy - Session Rate",
+               "timed_exception" : null
+            },
+            {
+               "event_handler" : null,
+               "exception" : null,
+               "name" : "Haproxy - Sessions Used",
+               "timed_exception" : null
+            },
+            {
+               "event_handler" : null,
+               "exception" : null,
+               "name" : "Haproxy - Status",
+               "timed_exception" : null
+            },
+            {
+               "event_handler" : null,
+               "exception" : null,
+               "name" : "Haproxy - Warnings Redispatched",
+               "timed_exception" : null
+            },
+            {
+               "event_handler" : null,
+               "exception" : null,
+               "name" : "Haproxy - Warnings Retried",
+               "timed_exception" : null
+            }
+         ]
+      }
+   ],
+   "keyword" : [],
+   "servicecheck" : [
+      {
+         "alert_from_failure" : "1",
+         "args" : "-H $HOSTADDRESS$ -m bytes -w 1000000 -c 2000000 -P '%HAPROXY:3%' -u '%HAPROXY:1%' -p '%HAPROXY:2%' -s '%HAPROXY:4%' -n '%HAPROXY_PROXY%'",
+         "attribute" : {
+            "name" : "HAPROXY_PROXY"
+         },
+         "calculate_rate" : "no",
+         "cascaded_from" : null,
+         "check_attempts" : "3",
+         "check_freshness" : "0",
+         "check_interval" : "300",
+         "checktype" : {
+            "name" : "Active Plugin"
+         },
+         "critical_comparison" : null,
+         "critical_value" : null,
+         "dependencies" : [],
+         "description" : "Checks the bytes in and bytes out",
+         "event_handler" : "",
+         "event_handler_always_exec" : "0",
+         "flap_detection_enabled" : "1",
+         "freshness_type" : "renotify",
+         "invertresults" : "0",
+         "keywords" : [],
+         "label" : null,
+         "level" : 0,
+         "markdown_filter" : "0",
+         "name" : "Haproxy - Bytes",
+         "notification_interval" : null,
+         "notification_options" : "w,c,r,u,f",
+         "oid" : null,
+         "plugin" : {
+            "name" : "check_haproxy"
+         },
+         "retry_check_interval" : "60",
+         "sensitive_arguments" : "1",
+         "servicegroup" : {
+            "name" : "Application - Haproxy"
+         },
+         "snmptraprules" : [],
+         "stale_state" : "0",
+         "stale_text" : "",
+         "stale_threshold_seconds" : "3600",
+         "stalking" : "",
+         "volatile" : "0",
+         "warning_comparison" : null,
+         "warning_value" : null
+      },
+      {
+         "alert_from_failure" : "1",
+         "args" : "-H $HOSTADDRESS$ -m connect_time -w 1000 -c 2000 -P '%HAPROXY:3%' -u '%HAPROXY:1%' -p '%HAPROXY:2%' -s '%HAPROXY:4%' -n '%HAPROXY_PROXY%'",
+         "attribute" : {
+            "name" : "HAPROXY_PROXY"
+         },
+         "calculate_rate" : "no",
+         "cascaded_from" : null,
+         "check_attempts" : "3",
+         "check_freshness" : "0",
+         "check_interval" : "300",
+         "checktype" : {
+            "name" : "Active Plugin"
+         },
+         "critical_comparison" : null,
+         "critical_value" : null,
+         "dependencies" : [],
+         "description" : "The time in ms of the connect session",
+         "event_handler" : "",
+         "event_handler_always_exec" : "0",
+         "flap_detection_enabled" : "1",
+         "freshness_type" : "renotify",
+         "invertresults" : "0",
+         "keywords" : [],
+         "label" : null,
+         "level" : 0,
+         "markdown_filter" : "0",
+         "name" : "Haproxy - Connect Time",
+         "notification_interval" : null,
+         "notification_options" : "w,c,r,u,f",
+         "oid" : null,
+         "plugin" : {
+            "name" : "check_haproxy"
+         },
+         "retry_check_interval" : "60",
+         "sensitive_arguments" : "1",
+         "servicegroup" : {
+            "name" : "Application - Haproxy"
+         },
+         "snmptraprules" : [],
+         "stale_state" : "0",
+         "stale_text" : "",
+         "stale_threshold_seconds" : "3600",
+         "stalking" : "",
+         "volatile" : "0",
+         "warning_comparison" : null,
+         "warning_value" : null
+      },
+      {
+         "alert_from_failure" : "1",
+         "args" : "-H $HOSTADDRESS$ -m current_queue -w 200 -c 300 -P '%HAPROXY:3%' -u '%HAPROXY:1%' -p '%HAPROXY:2%' -s '%HAPROXY:4%' -n '%HAPROXY_PROXY%'",
+         "attribute" : {
+            "name" : "HAPROXY_PROXY"
+         },
+         "calculate_rate" : "no",
+         "cascaded_from" : null,
+         "check_attempts" : "3",
+         "check_freshness" : "0",
+         "check_interval" : "300",
+         "checktype" : {
+            "name" : "Active Plugin"
+         },
+         "critical_comparison" : null,
+         "critical_value" : null,
+         "dependencies" : [],
+         "description" : "The current number in the queue",
+         "event_handler" : "",
+         "event_handler_always_exec" : "0",
+         "flap_detection_enabled" : "1",
+         "freshness_type" : "renotify",
+         "invertresults" : "0",
+         "keywords" : [],
+         "label" : null,
+         "level" : 0,
+         "markdown_filter" : "0",
+         "name" : "Haproxy - Currrent Queue",
+         "notification_interval" : null,
+         "notification_options" : "w,c,r,u,f",
+         "oid" : null,
+         "plugin" : {
+            "name" : "check_haproxy"
+         },
+         "retry_check_interval" : "60",
+         "sensitive_arguments" : "1",
+         "servicegroup" : {
+            "name" : "Application - Haproxy"
+         },
+         "snmptraprules" : [],
+         "stale_state" : "0",
+         "stale_text" : "",
+         "stale_threshold_seconds" : "3600",
+         "stalking" : "",
+         "volatile" : "0",
+         "warning_comparison" : null,
+         "warning_value" : null
+      },
+      {
+         "alert_from_failure" : "1",
+         "args" : "-H $HOSTADDRESS$ -m denied_connection -w 10 -c 15 -P '%HAPROXY:3%' -u '%HAPROXY:1%' -p '%HAPROXY:2%' -s '%HAPROXY:4%' -n '%HAPROXY_PROXY%'",
+         "attribute" : {
+            "name" : "HAPROXY_PROXY"
+         },
+         "calculate_rate" : "no",
+         "cascaded_from" : null,
+         "check_attempts" : "3",
+         "check_freshness" : "0",
+         "check_interval" : "300",
+         "checktype" : {
+            "name" : "Active Plugin"
+         },
+         "critical_comparison" : null,
+         "critical_value" : null,
+         "dependencies" : [],
+         "description" : "The number of denied connections made to the system",
+         "event_handler" : "",
+         "event_handler_always_exec" : "0",
+         "flap_detection_enabled" : "1",
+         "freshness_type" : "renotify",
+         "invertresults" : "0",
+         "keywords" : [],
+         "label" : null,
+         "level" : 0,
+         "markdown_filter" : "0",
+         "name" : "Haproxy - Denied Connection",
+         "notification_interval" : null,
+         "notification_options" : "w,c,r,u,f",
+         "oid" : null,
+         "plugin" : {
+            "name" : "check_haproxy"
+         },
+         "retry_check_interval" : "60",
+         "sensitive_arguments" : "1",
+         "servicegroup" : {
+            "name" : "Application - Haproxy"
+         },
+         "snmptraprules" : [],
+         "stale_state" : "0",
+         "stale_text" : "",
+         "stale_threshold_seconds" : "3600",
+         "stalking" : "",
+         "volatile" : "0",
+         "warning_comparison" : null,
+         "warning_value" : null
+      },
+      {
+         "alert_from_failure" : "1",
+         "args" : "-H $HOSTADDRESS$ -m denied_request -w 10 -c 15 -P '%HAPROXY:3%' -u '%HAPROXY:1%' -p '%HAPROXY:2%' -s '%HAPROXY:4%' -n '%HAPROXY_PROXY%'",
+         "attribute" : {
+            "name" : "HAPROXY_PROXY"
+         },
+         "calculate_rate" : "no",
+         "cascaded_from" : null,
+         "check_attempts" : "3",
+         "check_freshness" : "0",
+         "check_interval" : "300",
+         "checktype" : {
+            "name" : "Active Plugin"
+         },
+         "critical_comparison" : null,
+         "critical_value" : null,
+         "dependencies" : [],
+         "description" : "The number of denied requests made to the system",
+         "event_handler" : "",
+         "event_handler_always_exec" : "0",
+         "flap_detection_enabled" : "1",
+         "freshness_type" : "renotify",
+         "invertresults" : "0",
+         "keywords" : [],
+         "label" : null,
+         "level" : 0,
+         "markdown_filter" : "0",
+         "name" : "Haproxy - Denied Requests",
+         "notification_interval" : null,
+         "notification_options" : "w,c,r,u,f",
+         "oid" : null,
+         "plugin" : {
+            "name" : "check_haproxy"
+         },
+         "retry_check_interval" : "60",
+         "sensitive_arguments" : "1",
+         "servicegroup" : {
+            "name" : "Application - Haproxy"
+         },
+         "snmptraprules" : [],
+         "stale_state" : "0",
+         "stale_text" : "",
+         "stale_threshold_seconds" : "3600",
+         "stalking" : "",
+         "volatile" : "0",
+         "warning_comparison" : null,
+         "warning_value" : null
+      },
+      {
+         "alert_from_failure" : "1",
+         "args" : "-H $HOSTADDRESS$ -m denied_response -w 10 -c 15 -P '%HAPROXY:3%' -u '%HAPROXY:1%' -p '%HAPROXY:2%' -s '%HAPROXY:4%' -n '%HAPROXY_PROXY%'",
+         "attribute" : {
+            "name" : "HAPROXY_PROXY"
+         },
+         "calculate_rate" : "no",
+         "cascaded_from" : null,
+         "check_attempts" : "3",
+         "check_freshness" : "0",
+         "check_interval" : "300",
+         "checktype" : {
+            "name" : "Active Plugin"
+         },
+         "critical_comparison" : null,
+         "critical_value" : null,
+         "dependencies" : [],
+         "description" : "The number of denied responses made to the system",
+         "event_handler" : "",
+         "event_handler_always_exec" : "0",
+         "flap_detection_enabled" : "1",
+         "freshness_type" : "renotify",
+         "invertresults" : "0",
+         "keywords" : [],
+         "label" : null,
+         "level" : 0,
+         "markdown_filter" : "0",
+         "name" : "Haproxy - Denied Response",
+         "notification_interval" : null,
+         "notification_options" : "w,c,r,u,f",
+         "oid" : null,
+         "plugin" : {
+            "name" : "check_haproxy"
+         },
+         "retry_check_interval" : "60",
+         "sensitive_arguments" : "1",
+         "servicegroup" : {
+            "name" : "Application - Haproxy"
+         },
+         "snmptraprules" : [],
+         "stale_state" : "0",
+         "stale_text" : "",
+         "stale_threshold_seconds" : "3600",
+         "stalking" : "",
+         "volatile" : "0",
+         "warning_comparison" : null,
+         "warning_value" : null
+      },
+      {
+         "alert_from_failure" : "1",
+         "args" : "-H $HOSTADDRESS$ -m denied_session -w 10 -c 15 -P '%HAPROXY:3%' -u '%HAPROXY:1%' -p '%HAPROXY:2%' -s '%HAPROXY:4%' -n '%HAPROXY_PROXY%'",
+         "attribute" : {
+            "name" : "HAPROXY_PROXY"
+         },
+         "calculate_rate" : "no",
+         "cascaded_from" : null,
+         "check_attempts" : "3",
+         "check_freshness" : "0",
+         "check_interval" : "300",
+         "checktype" : {
+            "name" : "Active Plugin"
+         },
+         "critical_comparison" : null,
+         "critical_value" : null,
+         "dependencies" : [],
+         "description" : "The number of denied session made to the system",
+         "event_handler" : "",
+         "event_handler_always_exec" : "0",
+         "flap_detection_enabled" : "1",
+         "freshness_type" : "renotify",
+         "invertresults" : "0",
+         "keywords" : [],
+         "label" : null,
+         "level" : 0,
+         "markdown_filter" : "0",
+         "name" : "Haproxy - Denied Sessions",
+         "notification_interval" : null,
+         "notification_options" : "w,c,r,u,f",
+         "oid" : null,
+         "plugin" : {
+            "name" : "check_haproxy"
+         },
+         "retry_check_interval" : "60",
+         "sensitive_arguments" : "1",
+         "servicegroup" : {
+            "name" : "Application - Haproxy"
+         },
+         "snmptraprules" : [],
+         "stale_state" : "0",
+         "stale_text" : "",
+         "stale_threshold_seconds" : "3600",
+         "stalking" : "",
+         "volatile" : "0",
+         "warning_comparison" : null,
+         "warning_value" : null
+      },
+      {
+         "alert_from_failure" : "1",
+         "args" : "-H $HOSTADDRESS$ -m error_connection -w 10 -c 15 -P '%HAPROXY:3%' -u '%HAPROXY:1%' -p '%HAPROXY:2%' -s '%HAPROXY:4%' -n '%HAPROXY_PROXY%'",
+         "attribute" : {
+            "name" : "HAPROXY_PROXY"
+         },
+         "calculate_rate" : "no",
+         "cascaded_from" : null,
+         "check_attempts" : "3",
+         "check_freshness" : "0",
+         "check_interval" : "300",
+         "checktype" : {
+            "name" : "Active Plugin"
+         },
+         "critical_comparison" : null,
+         "critical_value" : null,
+         "dependencies" : [],
+         "description" : "The number of error connections",
+         "event_handler" : "",
+         "event_handler_always_exec" : "0",
+         "flap_detection_enabled" : "1",
+         "freshness_type" : "renotify",
+         "invertresults" : "0",
+         "keywords" : [],
+         "label" : null,
+         "level" : 0,
+         "markdown_filter" : "0",
+         "name" : "Haproxy - Error Connections",
+         "notification_interval" : null,
+         "notification_options" : "w,c,r,u,f",
+         "oid" : null,
+         "plugin" : {
+            "name" : "check_haproxy"
+         },
+         "retry_check_interval" : "60",
+         "sensitive_arguments" : "1",
+         "servicegroup" : {
+            "name" : "Application - Haproxy"
+         },
+         "snmptraprules" : [],
+         "stale_state" : "0",
+         "stale_text" : "",
+         "stale_threshold_seconds" : "3600",
+         "stalking" : "",
+         "volatile" : "0",
+         "warning_comparison" : null,
+         "warning_value" : null
+      },
+      {
+         "alert_from_failure" : "1",
+         "args" : "-H $HOSTADDRESS$ -m error_request -w 10 -c 15 -P '%HAPROXY:3%' -u '%HAPROXY:1%' -p '%HAPROXY:2%' -s '%HAPROXY:4%' -n '%HAPROXY_PROXY%'",
+         "attribute" : {
+            "name" : "HAPROXY_PROXY"
+         },
+         "calculate_rate" : "no",
+         "cascaded_from" : null,
+         "check_attempts" : "3",
+         "check_freshness" : "0",
+         "check_interval" : "300",
+         "checktype" : {
+            "name" : "Active Plugin"
+         },
+         "critical_comparison" : null,
+         "critical_value" : null,
+         "dependencies" : [],
+         "description" : "The number of error requests",
+         "event_handler" : "",
+         "event_handler_always_exec" : "0",
+         "flap_detection_enabled" : "1",
+         "freshness_type" : "renotify",
+         "invertresults" : "0",
+         "keywords" : [],
+         "label" : null,
+         "level" : 0,
+         "markdown_filter" : "0",
+         "name" : "Haproxy - Error Requests",
+         "notification_interval" : null,
+         "notification_options" : "w,c,r,u,f",
+         "oid" : null,
+         "plugin" : {
+            "name" : "check_haproxy"
+         },
+         "retry_check_interval" : "60",
+         "sensitive_arguments" : "1",
+         "servicegroup" : {
+            "name" : "Application - Haproxy"
+         },
+         "snmptraprules" : [],
+         "stale_state" : "0",
+         "stale_text" : "",
+         "stale_threshold_seconds" : "3600",
+         "stalking" : "",
+         "volatile" : "0",
+         "warning_comparison" : null,
+         "warning_value" : null
+      },
+      {
+         "alert_from_failure" : "1",
+         "args" : "-H $HOSTADDRESS$ -m error_response -w 10 -c 15 -P '%HAPROXY:3%' -u '%HAPROXY:1%' -p '%HAPROXY:2%' -s '%HAPROXY:4%' -n '%HAPROXY_PROXY%'",
+         "attribute" : {
+            "name" : "HAPROXY_PROXY"
+         },
+         "calculate_rate" : "no",
+         "cascaded_from" : null,
+         "check_attempts" : "3",
+         "check_freshness" : "0",
+         "check_interval" : "300",
+         "checktype" : {
+            "name" : "Active Plugin"
+         },
+         "critical_comparison" : null,
+         "critical_value" : null,
+         "dependencies" : [],
+         "description" : "The number of error responses",
+         "event_handler" : "",
+         "event_handler_always_exec" : "0",
+         "flap_detection_enabled" : "1",
+         "freshness_type" : "renotify",
+         "invertresults" : "0",
+         "keywords" : [],
+         "label" : null,
+         "level" : 0,
+         "markdown_filter" : "0",
+         "name" : "Haproxy - Error Response",
+         "notification_interval" : null,
+         "notification_options" : "w,c,r,u,f",
+         "oid" : null,
+         "plugin" : {
+            "name" : "check_haproxy"
+         },
+         "retry_check_interval" : "60",
+         "sensitive_arguments" : "1",
+         "servicegroup" : {
+            "name" : "Application - Haproxy"
+         },
+         "snmptraprules" : [],
+         "stale_state" : "0",
+         "stale_text" : "",
+         "stale_threshold_seconds" : "3600",
+         "stalking" : "",
+         "volatile" : "0",
+         "warning_comparison" : null,
+         "warning_value" : null
+      },
+      {
+         "alert_from_failure" : "1",
+         "args" : "-H $HOSTADDRESS$ -m intercepted_requests -w 900 -c 1000 -P '%HAPROXY:3%' -u '%HAPROXY:1%' -p '%HAPROXY:2%' -s '%HAPROXY:4%' -n '%HAPROXY_PROXY%'",
+         "attribute" : {
+            "name" : "HAPROXY_PROXY"
+         },
+         "calculate_rate" : "no",
+         "cascaded_from" : null,
+         "check_attempts" : "3",
+         "check_freshness" : "0",
+         "check_interval" : "300",
+         "checktype" : {
+            "name" : "Active Plugin"
+         },
+         "critical_comparison" : null,
+         "critical_value" : null,
+         "dependencies" : [],
+         "description" : "The number of intercepted requests",
+         "event_handler" : "",
+         "event_handler_always_exec" : "0",
+         "flap_detection_enabled" : "1",
+         "freshness_type" : "renotify",
+         "invertresults" : "0",
+         "keywords" : [],
+         "label" : null,
+         "level" : 0,
+         "markdown_filter" : "0",
+         "name" : "Haproxy - Intercepted Requests",
+         "notification_interval" : null,
+         "notification_options" : "w,c,r,u,f",
+         "oid" : null,
+         "plugin" : {
+            "name" : "check_haproxy"
+         },
+         "retry_check_interval" : "60",
+         "sensitive_arguments" : "1",
+         "servicegroup" : {
+            "name" : "Application - Haproxy"
+         },
+         "snmptraprules" : [],
+         "stale_state" : "0",
+         "stale_text" : "",
+         "stale_threshold_seconds" : "3600",
+         "stalking" : "",
+         "volatile" : "0",
+         "warning_comparison" : null,
+         "warning_value" : null
+      },
+      {
+         "alert_from_failure" : "1",
+         "args" : "-H $HOSTADDRESS$ -m queue_time -w 1000 -c 2000 -P '%HAPROXY:3%' -u '%HAPROXY:1%' -p '%HAPROXY:2%' -s '%HAPROXY:4%' -n '%HAPROXY_PROXY%'",
+         "attribute" : {
+            "name" : "HAPROXY_PROXY"
+         },
+         "calculate_rate" : "no",
+         "cascaded_from" : null,
+         "check_attempts" : "3",
+         "check_freshness" : "0",
+         "check_interval" : "300",
+         "checktype" : {
+            "name" : "Active Plugin"
+         },
+         "critical_comparison" : null,
+         "critical_value" : null,
+         "dependencies" : [],
+         "description" : "The time in ms of the queue session",
+         "event_handler" : "",
+         "event_handler_always_exec" : "0",
+         "flap_detection_enabled" : "1",
+         "freshness_type" : "renotify",
+         "invertresults" : "0",
+         "keywords" : [],
+         "label" : null,
+         "level" : 0,
+         "markdown_filter" : "0",
+         "name" : "Haproxy - Queue Time",
+         "notification_interval" : null,
+         "notification_options" : "w,c,r,u,f",
+         "oid" : null,
+         "plugin" : {
+            "name" : "check_haproxy"
+         },
+         "retry_check_interval" : "60",
+         "sensitive_arguments" : "1",
+         "servicegroup" : {
+            "name" : "Application - Haproxy"
+         },
+         "snmptraprules" : [],
+         "stale_state" : "0",
+         "stale_text" : "",
+         "stale_threshold_seconds" : "3600",
+         "stalking" : "",
+         "volatile" : "0",
+         "warning_comparison" : null,
+         "warning_value" : null
+      },
+      {
+         "alert_from_failure" : "1",
+         "args" : "-H $HOSTADDRESS$ -m request_rate -w 1000 -c 2000 -P '%HAPROXY:3%' -u '%HAPROXY:1%' -p '%HAPROXY:2%' -s '%HAPROXY:4%' -n '%HAPROXY_PROXY%'",
+         "attribute" : {
+            "name" : "HAPROXY_PROXY"
+         },
+         "calculate_rate" : "no",
+         "cascaded_from" : null,
+         "check_attempts" : "3",
+         "check_freshness" : "0",
+         "check_interval" : "300",
+         "checktype" : {
+            "name" : "Active Plugin"
+         },
+         "critical_comparison" : null,
+         "critical_value" : null,
+         "dependencies" : [],
+         "description" : "The number of requests per second",
+         "event_handler" : "",
+         "event_handler_always_exec" : "0",
+         "flap_detection_enabled" : "1",
+         "freshness_type" : "renotify",
+         "invertresults" : "0",
+         "keywords" : [],
+         "label" : null,
+         "level" : 0,
+         "markdown_filter" : "0",
+         "name" : "Haproxy - Request Rate",
+         "notification_interval" : null,
+         "notification_options" : "w,c,r,u,f",
+         "oid" : null,
+         "plugin" : {
+            "name" : "check_haproxy"
+         },
+         "retry_check_interval" : "60",
+         "sensitive_arguments" : "1",
+         "servicegroup" : {
+            "name" : "Application - Haproxy"
+         },
+         "snmptraprules" : [],
+         "stale_state" : "0",
+         "stale_text" : "",
+         "stale_threshold_seconds" : "3600",
+         "stalking" : "",
+         "volatile" : "0",
+         "warning_comparison" : null,
+         "warning_value" : null
+      },
+      {
+         "alert_from_failure" : "1",
+         "args" : "-H $HOSTADDRESS$ -m request_time -w 1000 -c 2000 -P '%HAPROXY:3%' -u '%HAPROXY:1%' -p '%HAPROXY:2%' -s '%HAPROXY:4%' -n '%HAPROXY_PROXY%'",
+         "attribute" : {
+            "name" : "HAPROXY_PROXY"
+         },
+         "calculate_rate" : "no",
+         "cascaded_from" : null,
+         "check_attempts" : "3",
+         "check_freshness" : "0",
+         "check_interval" : "300",
+         "checktype" : {
+            "name" : "Active Plugin"
+         },
+         "critical_comparison" : null,
+         "critical_value" : null,
+         "dependencies" : [],
+         "description" : "The time in ms of the session request",
+         "event_handler" : "",
+         "event_handler_always_exec" : "0",
+         "flap_detection_enabled" : "1",
+         "freshness_type" : "renotify",
+         "invertresults" : "0",
+         "keywords" : [],
+         "label" : null,
+         "level" : 0,
+         "markdown_filter" : "0",
+         "name" : "Haproxy - Request Time",
+         "notification_interval" : null,
+         "notification_options" : "w,c,r,u,f",
+         "oid" : null,
+         "plugin" : {
+            "name" : "check_haproxy"
+         },
+         "retry_check_interval" : "60",
+         "sensitive_arguments" : "1",
+         "servicegroup" : {
+            "name" : "Application - Haproxy"
+         },
+         "snmptraprules" : [],
+         "stale_state" : "0",
+         "stale_text" : "",
+         "stale_threshold_seconds" : "3600",
+         "stalking" : "",
+         "volatile" : "0",
+         "warning_comparison" : null,
+         "warning_value" : null
+      },
+      {
+         "alert_from_failure" : "1",
+         "args" : "-H $HOSTADDRESS$ -m response_code -w 300 -c 450 -P '%HAPROXY:3%' -u '%HAPROXY:1%' -p '%HAPROXY:2%' -s '%HAPROXY:4%' -n '%HAPROXY_PROXY%'",
+         "attribute" : {
+            "name" : "HAPROXY_PROXY"
+         },
+         "calculate_rate" : "no",
+         "cascaded_from" : null,
+         "check_attempts" : "3",
+         "check_freshness" : "0",
+         "check_interval" : "300",
+         "checktype" : {
+            "name" : "Active Plugin"
+         },
+         "critical_comparison" : null,
+         "critical_value" : null,
+         "dependencies" : [],
+         "description" : "The number of code responses of each type",
+         "event_handler" : "",
+         "event_handler_always_exec" : "0",
+         "flap_detection_enabled" : "1",
+         "freshness_type" : "renotify",
+         "invertresults" : "0",
+         "keywords" : [],
+         "label" : null,
+         "level" : 0,
+         "markdown_filter" : "0",
+         "name" : "Haproxy - Response Codes",
+         "notification_interval" : null,
+         "notification_options" : "w,c,r,u,f",
+         "oid" : null,
+         "plugin" : {
+            "name" : "check_haproxy"
+         },
+         "retry_check_interval" : "60",
+         "sensitive_arguments" : "1",
+         "servicegroup" : {
+            "name" : "Application - Haproxy"
+         },
+         "snmptraprules" : [],
+         "stale_state" : "0",
+         "stale_text" : "",
+         "stale_threshold_seconds" : "3600",
+         "stalking" : "",
+         "volatile" : "0",
+         "warning_comparison" : null,
+         "warning_value" : null
+      },
+      {
+         "alert_from_failure" : "1",
+         "args" : "-H $HOSTADDRESS$ -m session_rate -w 1000 -c 2000 -P '%HAPROXY:3%' -u '%HAPROXY:1%' -p '%HAPROXY:2%' -s '%HAPROXY:4%' -n '%HAPROXY_PROXY%'",
+         "attribute" : {
+            "name" : "HAPROXY_PROXY"
+         },
+         "calculate_rate" : "no",
+         "cascaded_from" : null,
+         "check_attempts" : "3",
+         "check_freshness" : "0",
+         "check_interval" : "300",
+         "checktype" : {
+            "name" : "Active Plugin"
+         },
+         "critical_comparison" : null,
+         "critical_value" : null,
+         "dependencies" : [],
+         "description" : "The number of sessions per second",
+         "event_handler" : "",
+         "event_handler_always_exec" : "0",
+         "flap_detection_enabled" : "1",
+         "freshness_type" : "renotify",
+         "invertresults" : "0",
+         "keywords" : [],
+         "label" : null,
+         "level" : 0,
+         "markdown_filter" : "0",
+         "name" : "Haproxy - Session Rate",
+         "notification_interval" : null,
+         "notification_options" : "w,c,r,u,f",
+         "oid" : null,
+         "plugin" : {
+            "name" : "check_haproxy"
+         },
+         "retry_check_interval" : "60",
+         "sensitive_arguments" : "1",
+         "servicegroup" : {
+            "name" : "Application - Haproxy"
+         },
+         "snmptraprules" : [],
+         "stale_state" : "0",
+         "stale_text" : "",
+         "stale_threshold_seconds" : "3600",
+         "stalking" : "",
+         "volatile" : "0",
+         "warning_comparison" : null,
+         "warning_value" : null
+      },
+      {
+         "alert_from_failure" : "1",
+         "args" : "-H $HOSTADDRESS$ -m session_used -w 70 -c 90 -P '%HAPROXY:3%' -u '%HAPROXY:1%' -p '%HAPROXY:2%' -s '%HAPROXY:4%' -n '%HAPROXY_PROXY%'",
+         "attribute" : {
+            "name" : "HAPROXY_PROXY"
+         },
+         "calculate_rate" : "no",
+         "cascaded_from" : null,
+         "check_attempts" : "3",
+         "check_freshness" : "0",
+         "check_interval" : "300",
+         "checktype" : {
+            "name" : "Active Plugin"
+         },
+         "critical_comparison" : null,
+         "critical_value" : null,
+         "dependencies" : [],
+         "description" : "The percentage of used sessions",
+         "event_handler" : "",
+         "event_handler_always_exec" : "0",
+         "flap_detection_enabled" : "1",
+         "freshness_type" : "renotify",
+         "invertresults" : "0",
+         "keywords" : [],
+         "label" : null,
+         "level" : 0,
+         "markdown_filter" : "0",
+         "name" : "Haproxy - Sessions Used",
+         "notification_interval" : null,
+         "notification_options" : "w,c,r,u,f",
+         "oid" : null,
+         "plugin" : {
+            "name" : "check_haproxy"
+         },
+         "retry_check_interval" : "60",
+         "sensitive_arguments" : "1",
+         "servicegroup" : {
+            "name" : "Application - Haproxy"
+         },
+         "snmptraprules" : [],
+         "stale_state" : "0",
+         "stale_text" : "",
+         "stale_threshold_seconds" : "3600",
+         "stalking" : "",
+         "volatile" : "0",
+         "warning_comparison" : null,
+         "warning_value" : null
+      },
+      {
+         "alert_from_failure" : "1",
+         "args" : "-H $HOSTADDRESS$ -m status -P '%HAPROXY:3%' -u '%HAPROXY:1%' -p '%HAPROXY:2%' -s '%HAPROXY:4%' -n '%HAPROXY_PROXY%'",
+         "attribute" : {
+            "name" : "HAPROXY_PROXY"
+         },
+         "calculate_rate" : "no",
+         "cascaded_from" : null,
+         "check_attempts" : "3",
+         "check_freshness" : "0",
+         "check_interval" : "300",
+         "checktype" : {
+            "name" : "Active Plugin"
+         },
+         "critical_comparison" : null,
+         "critical_value" : null,
+         "dependencies" : [],
+         "description" : "Checks the status of the proxy",
+         "event_handler" : "",
+         "event_handler_always_exec" : "0",
+         "flap_detection_enabled" : "1",
+         "freshness_type" : "renotify",
+         "invertresults" : "0",
+         "keywords" : [],
+         "label" : null,
+         "level" : 0,
+         "markdown_filter" : "0",
+         "name" : "Haproxy - Status",
+         "notification_interval" : null,
+         "notification_options" : "w,c,r,u,f",
+         "oid" : null,
+         "plugin" : {
+            "name" : "check_haproxy"
+         },
+         "retry_check_interval" : "60",
+         "sensitive_arguments" : "1",
+         "servicegroup" : {
+            "name" : "Application - Haproxy"
+         },
+         "snmptraprules" : [],
+         "stale_state" : "0",
+         "stale_text" : "",
+         "stale_threshold_seconds" : "3600",
+         "stalking" : "",
+         "volatile" : "0",
+         "warning_comparison" : null,
+         "warning_value" : null
+      },
+      {
+         "alert_from_failure" : "1",
+         "args" : "-H $HOSTADDRESS$ -m warnings_redispatched -w 10 -c 15 -P '%HAPROXY:3%' -u '%HAPROXY:1%' -p '%HAPROXY:2%' -s '%HAPROXY:4%' -n '%HAPROXY_PROXY%'",
+         "attribute" : {
+            "name" : "HAPROXY_PROXY"
+         },
+         "calculate_rate" : "no",
+         "cascaded_from" : null,
+         "check_attempts" : "3",
+         "check_freshness" : "0",
+         "check_interval" : "300",
+         "checktype" : {
+            "name" : "Active Plugin"
+         },
+         "critical_comparison" : null,
+         "critical_value" : null,
+         "dependencies" : [],
+         "description" : "The number of redispatched warnings",
+         "event_handler" : "",
+         "event_handler_always_exec" : "0",
+         "flap_detection_enabled" : "1",
+         "freshness_type" : "renotify",
+         "invertresults" : "0",
+         "keywords" : [],
+         "label" : null,
+         "level" : 0,
+         "markdown_filter" : "0",
+         "name" : "Haproxy - Warnings Redispatched",
+         "notification_interval" : null,
+         "notification_options" : "w,c,r,u,f",
+         "oid" : null,
+         "plugin" : {
+            "name" : "check_haproxy"
+         },
+         "retry_check_interval" : "60",
+         "sensitive_arguments" : "1",
+         "servicegroup" : {
+            "name" : "Application - Haproxy"
+         },
+         "snmptraprules" : [],
+         "stale_state" : "0",
+         "stale_text" : "",
+         "stale_threshold_seconds" : "3600",
+         "stalking" : "",
+         "volatile" : "0",
+         "warning_comparison" : null,
+         "warning_value" : null
+      },
+      {
+         "alert_from_failure" : "1",
+         "args" : "-H $HOSTADDRESS$ -m warnings_retried -w 10 -c 15 -P '%HAPROXY:3%' -u '%HAPROXY:1%' -p '%HAPROXY:2%' -s '%HAPROXY:4%' -n '%HAPROXY_PROXY%'",
+         "attribute" : {
+            "name" : "HAPROXY_PROXY"
+         },
+         "calculate_rate" : "no",
+         "cascaded_from" : null,
+         "check_attempts" : "3",
+         "check_freshness" : "0",
+         "check_interval" : "300",
+         "checktype" : {
+            "name" : "Active Plugin"
+         },
+         "critical_comparison" : null,
+         "critical_value" : null,
+         "dependencies" : [],
+         "description" : "The number of retried warnings",
+         "event_handler" : "",
+         "event_handler_always_exec" : "0",
+         "flap_detection_enabled" : "1",
+         "freshness_type" : "renotify",
+         "invertresults" : "0",
+         "keywords" : [],
+         "label" : null,
+         "level" : 0,
+         "markdown_filter" : "0",
+         "name" : "Haproxy - Warnings Retried",
+         "notification_interval" : null,
+         "notification_options" : "w,c,r,u,f",
+         "oid" : null,
+         "plugin" : {
+            "name" : "check_haproxy"
+         },
+         "retry_check_interval" : "60",
+         "sensitive_arguments" : "1",
+         "servicegroup" : {
+            "name" : "Application - Haproxy"
+         },
+         "snmptraprules" : [],
+         "stale_state" : "0",
+         "stale_text" : "",
+         "stale_threshold_seconds" : "3600",
+         "stalking" : "",
+         "volatile" : "0",
+         "warning_comparison" : null,
+         "warning_value" : null
+      }
+   ],
+   "servicegroup" : [
+      {
+         "name" : "Application - Haproxy"
+      }
+   ]
+}
