@@ -1,5 +1,5 @@
 NAME=com.opsview.opspack.application_haproxy
-VERSION=1.0
+VERSION=2.0
 ALIAS=Application - HAProxy
 DEPENDENCIES=
-OPSVIEW_MIN_VERSION=
+OPSVIEW_MIN_VERSION=6.0.0
